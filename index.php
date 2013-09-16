@@ -51,8 +51,8 @@ if(isset($_POST["calc"])){
                                 "mult" => "*", "div" => "/", "fact" => "!");
                             foreach ($operations as $key => $value) {
                                 if ($operation == "$key") {
-                                    echo "<option value = '$key' selected = 'selected'>$value</option>";
-                                }
+                                    echo "<option value = '$key' selected>$value</option>";
+                                }else
                                 echo "<option value = '$key'>$value</option>";
                             }
                         ?>
