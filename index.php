@@ -15,6 +15,9 @@ if(isset($_POST["calc"])){
         case "mult":
             $result = "$n_1 * $n_2 = " . mult($n_1, $n_2);
             break;
+        case "mean":
+            $result = "($n_1 + $n_2)/2 = " . mean($n_1, $n_2);
+            break;
         case "div": {
             $result = div($n_1, $n_2);
             if ($result === FALSE) $result = "Деление на 0!";
@@ -47,8 +50,12 @@ if(isset($_POST["calc"])){
                 <input type = "text" name ="n_1" value ="<?php echo $n_1?>">
                 <select name="operation">
                         <?php 
-                            $operations = array("add" => "+", "sub" => "-", 
-                                "mult" => "*", "div" => "/", "fact" => "!");
+                            $operations = array("add" => "+", 
+                                                "sub" => "-",
+                                                "mult" => "*", 
+                                                "div" => "/", 
+                                                "fact" => "!",
+                                                "mean" => "mean");
                             foreach ($operations as $key => $value) {
                                 if ($operation == "$key") {
                                     echo "<option value = '$key' selected>$value</option>";

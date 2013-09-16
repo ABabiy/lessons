@@ -11,6 +11,9 @@ function sub($x, $y) {
 function mult($x, $y) {
     return ($x * $y);
 }
+function mean($x, $y) {
+    return ($x + $y) / 2;
+}
 
 function div($x, $y) {
     if ($y == 0) {
