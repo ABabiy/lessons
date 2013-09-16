@@ -29,4 +29,24 @@ function factorial($x) {
     }
     return $f;
 }
+function mySortArray($myarray, $sort) {
+    if ($sort == TRUE) {
+        sort($myarray);
+        echo "<center>";
+        for ($i = 0; $i < count($myarray); $i++) {
+            echo "<br>Элемент $i = " . $myarray[$i];
+        }
+        foreach ($myarray as $value) {
+            echo "<br>Элемент $value = " . $myarray[$value];
+        }
+        
+        echo "</center>";
+    }
+    elseif ($sort == FALSE) {
+        rsort($myarray);
+        for ($i = 0; $i < count($myarray); $i++) {
+            echo "<br>Элемент $i = " . $myarray[$i];
+        }
+    }
+}
 ?>
