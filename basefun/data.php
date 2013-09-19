@@ -38,7 +38,10 @@ echo checkdate(2, 31, 2013);
                 <select name ="year">
                     <?php
                     foreach ($year as $value) {
-                        if ($value == date("Y")) {
+                        if ($value == date("Y") and (!isset($_POST["year"]))) {
+                            echo "<option selected value =" . $value . ">$value</option>";
+                        }
+                        elseif (isset($_POST["year"]) and $_POST["year"] == $value) {
                             echo "<option selected value =" . $value . ">$value</option>";
                         }
                         else {
@@ -50,11 +53,14 @@ echo checkdate(2, 31, 2013);
                 <select name = "month">
                     <?php
                     foreach ($month as $key => $value) {
-                        if ($key == date("n")) {
+                        if ($key == date("n") and (!isset($_POST["month"]))) {
+                            echo "<option selected value =" . $value . ">$value</option>";
+                        }
+                        elseif (isset($_POST["month"]) and $_POST["month"] == $value){
                             echo "<option selected value =" . $value . ">$value</option>";
                         }
                         else {
-                            echo "<option value =" . $value . ">$value</option>";
+                            echo "<option value =" . $value . ">$value</option>";    
                         }
                     }
                     ?>
@@ -62,11 +68,14 @@ echo checkdate(2, 31, 2013);
                 <select name = "day">
                     <?php
                     foreach ($day as $value) {
-                        if ($value == date("j")) {
+                        if ($value == date("j") and (!isset($_POST["day"]))) {
+                            echo "<option selected value =" . $value . ">$value</option>";
+                        }
+                        elseif ((isset($_POST["day"])) and ($_POST["day"]) == $value){
                             echo "<option selected value =" . $value . ">$value</option>";
                         }
                         else {
-                            echo "<option value =" . $value . ">$value</option>";
+                            echo "<option value =" . $value . ">$value</option>";                            
                         }
                     }
                     ?>
