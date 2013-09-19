@@ -49,4 +49,5 @@ function mySortArray($myarray, $sort) {
         }
     }
 }
+
 ?>
