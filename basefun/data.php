@@ -12,7 +12,7 @@ for ($i = 31; $i >= 1; $i--) {
     $day[] = $i;
 }
 function myChDate($month, $day, $year) {
-    if (checkdate($month, $day, $year) == false) {
+    if (isset($_POST["year"]) and checkdate($month, $day, $year) == false) {
         echo "сорри ошибка вышла с датой...";
     }
 }
@@ -25,10 +25,10 @@ function monthToint($str){
     return "$res";
 }
 
-monthToint("Февраль");
-
-myChDate($res, $_POST["day"], $_POST["year"]);
-echo checkdate(2, 31, 2013);
+monthToint($_POST["month"]);
+//
+//myChDate($res, $_POST["day"], $_POST["year"]);
+//echo checkdate(2, 31, 2013);
 
 ?>
 <table width ="300px" border ="1px" cellpadding ="0" cellspacing ="0" align ="center">
@@ -83,6 +83,7 @@ echo checkdate(2, 31, 2013);
                 <br><br>
                 <input type = "submit" name = "send" value = "Отправить данные">
             </form>
+            <?=myChDate($res, $_POST["day"], $_POST["year"]);?>
         </td>
     </tr>
 </table>
