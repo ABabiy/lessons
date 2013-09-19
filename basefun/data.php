@@ -14,22 +14,26 @@ for ($i = 31; $i >= 1; $i--) {
 function myChDate($month, $day, $year) {
     if (isset($_POST["year"]) and checkdate($month, $day, $year) == false) {
         echo "сорри ошибка вышла с датой...";
+        echo "Ошибка!!!";
     }
-}
-function monthToint($str){
+    else
+        echo "С начала эры Unix прошло - " . mktime() . "сек.";
+        echo "<br>";
+        echo "Текущая дата " . date("Y-m-d");
+    }
+function monthToint($str) {
     global $month;
     global $res;
     foreach ($month as $key => $value) {
-        if ($value == $str) $res = $key;            
+        if ($value == $str)
+            $res = $key;
     }
     return "$res";
 }
-
 monthToint($_POST["month"]);
 //
 //myChDate($res, $_POST["day"], $_POST["year"]);
 //echo checkdate(2, 31, 2013);
-
 ?>
 <table width ="300px" border ="1px" cellpadding ="0" cellspacing ="0" align ="center">
     <tr>
@@ -56,11 +60,11 @@ monthToint($_POST["month"]);
                         if ($key == date("n") and (!isset($_POST["month"]))) {
                             echo "<option selected value =" . $value . ">$value</option>";
                         }
-                        elseif (isset($_POST["month"]) and $_POST["month"] == $value){
+                        elseif (isset($_POST["month"]) and $_POST["month"] == $value) {
                             echo "<option selected value =" . $value . ">$value</option>";
                         }
                         else {
-                            echo "<option value =" . $value . ">$value</option>";    
+                            echo "<option value =" . $value . ">$value</option>";
                         }
                     }
                     ?>
@@ -71,11 +75,11 @@ monthToint($_POST["month"]);
                         if ($value == date("j") and (!isset($_POST["day"]))) {
                             echo "<option selected value =" . $value . ">$value</option>";
                         }
-                        elseif ((isset($_POST["day"])) and ($_POST["day"]) == $value){
+                        elseif ((isset($_POST["day"])) and ($_POST["day"]) == $value) {
                             echo "<option selected value =" . $value . ">$value</option>";
                         }
                         else {
-                            echo "<option value =" . $value . ">$value</option>";                            
+                            echo "<option value =" . $value . ">$value</option>";
                         }
                     }
                     ?>
@@ -83,7 +87,7 @@ monthToint($_POST["month"]);
                 <br><br>
                 <input type = "submit" name = "send" value = "Отправить данные">
             </form>
-            <?=myChDate($res, $_POST["day"], $_POST["year"]);?>
+<?= myChDate($res, $_POST["day"], $_POST["year"]); ?>
         </td>
     </tr>
 </table>
