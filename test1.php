@@ -77,7 +77,8 @@ function myRaschetSkidok($spisok) {
 
         foreach ($rez as $key => $value) {
             if ($key != "A" and $key != "C") {
-                echo "Товар " . $key . " цена за единицу " . $nabor[$key] . "  Всего $value шт." . "<br>";
+                echo "Товар " . $key . " цена за единицу " . $nabor[$key] . 
+                    "  Всего $value шт." . "<br>";
                 $mytmp[$key] = $value;
             }
         }
