@@ -1,5 +1,6 @@
 <?php
-    $data = "Имя: <b>" . ($_POST["name"] . "</b>   " . "Комментарий: <b>" . $_POST["comment"] . "</b><br>");
+    $data = "Имя: <b>" . ($_POST["name"] . "</b>   " . "Комментарий: <b>" . 
+        $_POST["comment"] . "</b><br>");
     file_put_contents("comment.txt", $data, FILE_APPEND);
 ?>
 <form name="form" action="file.php" method="post">
